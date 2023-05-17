@@ -1,16 +1,16 @@
 const express = require('express');
 const app = express();
 const port = 1200;
-const pagesDir = __dirname + '/pages/';
 
 app.set('view engine', 'ejs');
+// app.set('views', 'views-folder-name'); for if we wanted to use a custom one. views by default
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/static', express.static('static'));
 
 app.get('', (req, res) => {
-    res.sendFile(`${pagesDir}`);
+    res.render('index', {});
 });
 
 const booksRouter = require('./routes/books');

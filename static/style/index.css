@@ -1,3 +1,27 @@
-body {
-    background-color: #F5C3F1;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body { 
+    margin: 0;
+    font-family: Inter;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.header {
+    min-height: 110px;
+    background-color: rgb(138, 89, 183);
+
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10%;
+}
+
+.header .title {
+    color: white;
+}
+
+.title {
+    
 }
