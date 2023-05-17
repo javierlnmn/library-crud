@@ -7,5 +7,4 @@ const connection = knex({
     }
 });
 
-
 module.exports = connection;
