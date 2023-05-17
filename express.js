@@ -5,9 +5,8 @@ const port = 1200; // Set your preferred port number
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
+// Using static automatically allows the
+app.use(express.static(__dirname + 'public/'));
 
 // Start the server
 app.listen(port, () => {
