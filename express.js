@@ -20,5 +20,6 @@ app.use('/authors', authorsRouter);
 
 // Start the server
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}\nServer's url: http://localhost:${port}/`);
+    console.clear();
+    console.log(`Server's url: http://localhost:${port}/`);
 });

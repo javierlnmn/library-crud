@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+
+    <link rel="stylesheet" href="/static/style/index.css">
+</head>
+
+<body>
+
+    <%- include('blocks/header.html') %>
+
+        <main>
+
+            <div class="container">
+                <h1 class="subtitle"><%= author.name %> <%= author.surname %></h1>
+
+                <% if (author.books.length != 0) { %>
+                    <p>
+                        Seeing <%= author.name %><% if (author.surname) { %> <%=author.surname%><% } %>'s books!
+                    </p>
+
+                    <table class="table">
+                        <thead class="table-header">
+                            <tr>
+                                <% for (let key in author.books[0]) {%>
+                                    <% if (key != 'author_id') { %>
+                                        <th class="table-header-field">
+                                            <%= key %>
+                                        </th>
+                                    <% } %>
+                                <% } %>
+                                <th class="table-header-field">
+                                    link
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-body">
+                            <% for (let book of author.books) {%>
+                                <tr>
+                                    <% for (let key in book) {%>
+                                        <% if (key != 'author_id') { %>
+                                            <td class="table-body-field">
+                                                <%= book[key] %>
+                                            </td>
+                                        <% } %>
+                                    <% } %>
+                                    <td class="table-body-field">
+                                        <a class="link" href="/books/<%= book.id %>">See book</a>
+                                    </td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+
+                <% } else { %>
+                    <p>
+                        <%= author.name %> <% if (author.surname) { %><%= author.surname %><% } %> has no books in our library yeet!
+                    </p>
+                <% }  %>
+
+                </div>
+
+        </main>
+
+</body>
+
+</html>

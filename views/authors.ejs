@@ -16,6 +16,10 @@
 
         <main>
 
+            <div class="container">
+                <h1 class="subtitle">Authors</h1>
+            </div>
+
             <table class="table container">
                 <thead class="table-header">
                     <tr>
@@ -38,7 +42,7 @@
                                 </td>
                             <% } %>
                             <td class="table-body-field">
-                                <a class="link" href="/authors/author/<%= author.id %>">See author</a>
+                                <a class="link" href="/authors/<%= author.id %>">See author</a>
                             </td>
                         </tr>
                     <% } %>

@@ -8,4 +8,17 @@ router.get('/', async (req, res) => {
     res.render('books', { books, authors });
 });
 
+router
+    .route('/:id')
+    .get(async (req, res) => {
+        const author = await queries.getAllAuthors();
+        res.render('book', book);
+    })
+    .put((req, res) => {
+        res.send('Actualizado al libro con ID: ' + req.params.id);
+    })
+    .delete((req, res) => {
+        res.send('Eliminado al libro con ID: ' + req.params.id);
+    });
+
 module.exports = router;

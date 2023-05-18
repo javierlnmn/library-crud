@@ -1,41 +1,50 @@
 const connection = require('./knex');
 
 getAllBooks = () => {
-    return connection('books').select('*');
+    return connection('book').select('*');
 };
 
 getAllAuthors = () => {
-    return connection('authors').select('*');
+    return connection('author').select('*');
 };
 
-// Test function. This one wont be used in the app ----------
 getBook = (id) => {
-    return connection('books').select('*').where('id', id);
+    return connection('book').select('*').where('id', id);
 };
-// ----------------------------------------------------------
+
+getAuthorsBooks = (id) => {
+    return connection('book').select('*').where('author_id', parseInt(id));
+};
+
+getAuthor = (id) => {
+    return connection('author').select('*').where('id', id);
+};
 
 deleteBook = (id) => {
-    return connection('books').where('id', id).del();
+    return connection('book').where('id', id).del();
 }
 
 deleteAuthor = (id) => {
-    return connection('authors').where('id', id).del();
+    return connection('author').where('id', id).del();
 }
 
 // When doing an update, to modify the data updated we just have to modify the book object
 updateBook = (id, book) => {
     book.added = new Date().toISOString();
-    return connection('books').where('id', id).update(book);
+    return connection('book').where('id', id).update(book);
 }
 
 updateAuthor = (id, author) => {
     author.added = new Date().toISOString();
-    return connection('authors').where('id', id).update(author);
+    return connection('author').where('id', id).update(author);
 }
 
 module.exports = {
     getAllBooks: getAllBooks,
     getAllAuthors: getAllAuthors,
+    getBook: getBook,
+    getAuthorsBooks: getAuthorsBooks,
+    getAuthor: getAuthor,
     deleteBook: deleteBook,
     deleteAuthor: deleteAuthor,
     updateBook: updateBook,

@@ -16,19 +16,29 @@
 
         <main>
 
+            <div class="container">
+                <h1 class="subtitle">Books</h1>
+            </div>
+
             <table class="table container">
                 <thead class="table-header">
                     <tr>
                         <% for (let key in books[0]) {%>
+
                             <% if (key == 'author_id') { %>
+
                                 <th class="table-header-field">
                                     Author
                                 </th>
+
                             <% } else { %>
+
                                 <th class="table-header-field">
                                     <%= key %>
                                 </th>
+
                             <% } %>
+
                         <% } %>
                         <th class="table-header-field">
                             link
@@ -42,14 +52,14 @@
                                 <% if (key == 'author_id') { %>
 
                                     <td class="table-header-field">
-                                        <a class="link" href="/authors/author/<%= book.author_id %>">
+                                        <a class="link" href="/authors/<%= book.author_id %>">
 
                                             <% for (let key in authors) {%>
                                                 <% if (authors[key].id == book.author_id) {%>
-                                                    <%= authors[key].name %>
+                                                    <%= authors[key].name %> <%= authors[key].surname %>
                                                 <% } %>
                                             <% } %>
-                                            
+
                                         </a>
                                     </td>
 
@@ -63,7 +73,7 @@
                                 
                             <% } %>
                             <td class="table-body-field">
-                                <a class="link" href="/books/book/<%= book.id %>">See book</a>
+                                <a class="link" href="/books/<%= book.id %>">See book</a>
                             </td>
                         </tr>
                     <% } %>
