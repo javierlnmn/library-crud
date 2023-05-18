@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+
+    <link rel="stylesheet" href="/static/style/index.css">
+</head>
+
+<body>
+
+    <%- include('blocks/header.html') %>
+
+        <main>
+
+            <div class="container">
+
+                <h1 class="subtitle"><%= book.title %></h1>
+
+                <ul class="book-characteristics">
+                    <li>Title: <b><%= book.title %></b></li>
+                    <li>Written by: <a class="link" href="/authors/<%=book.author_id%>"><%= book.author.name %><% if (book.author.surname) { %> <%=book.author.surname%><% } %></a></li>
+                    <li>Date: <%= book.date %></li>
+                </ul>
+
+            </div>
+
+        </main>
+
+</body>
+
+</html>

@@ -106,6 +106,12 @@ main {
     width: 100%;
 }
 
+@media (max-width: 768px) {
+    .table {
+        font-size: 12px;
+    }
+}
+
 .table .table-header-field {
     color: var(--blanco);
     text-transform: capitalize;
@@ -123,4 +129,12 @@ main {
 
 .table .table-body tr:nth-child(even) {
     background-color: rgba(7, 113, 135, .2);
+}
+
+/* Book */
+
+.book-characteristics {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

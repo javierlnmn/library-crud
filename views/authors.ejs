@@ -17,37 +17,39 @@
         <main>
 
             <div class="container">
+                
                 <h1 class="subtitle">Authors</h1>
-            </div>
 
-            <table class="table container">
-                <thead class="table-header">
-                    <tr>
-                        <% for (let key in authors[0]) {%>
-                            <th class="table-header-field">
-                                <%= key %>
-                            </th>
-                        <% } %>
-                        <th class="table-header-field">
-                            link
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class="table-body">
-                    <% for (let author of authors) {%>
+                <table class="table">
+                    <thead class="table-header">
                         <tr>
-                            <% for (let key in author) {%>
-                                <td class="table-body-field">
-                                    <%= author[key] %>
-                                </td>
+                            <% for (let key in authors[0]) {%>
+                                <th class="table-header-field">
+                                    <%= key %>
+                                </th>
                             <% } %>
-                            <td class="table-body-field">
-                                <a class="link" href="/authors/<%= author.id %>">See author</a>
-                            </td>
+                            <th class="table-header-field">
+                                link
+                            </th>
                         </tr>
-                    <% } %>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody class="table-body">
+                        <% for (let author of authors) {%>
+                            <tr>
+                                <% for (let key in author) {%>
+                                    <td class="table-body-field">
+                                        <%= author[key] %>
+                                    </td>
+                                <% } %>
+                                <td class="table-body-field">
+                                    <a class="link" href="/authors/<%= author.id %>">See author</a>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            
+            </div>
 
         </main>
 

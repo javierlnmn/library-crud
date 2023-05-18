@@ -9,7 +9,7 @@ getAllAuthors = () => {
 };
 
 getBook = (id) => {
-    return connection('book').select('*').where('id', id);
+    return connection('book').select('*').where('id', id).first();
 };
 
 getAuthorsBooks = (id) => {
@@ -17,7 +17,7 @@ getAuthorsBooks = (id) => {
 };
 
 getAuthor = (id) => {
-    return connection('author').select('*').where('id', id);
+    return connection('author').select('*').where('id', id).first();
 };
 
 deleteBook = (id) => {
@@ -30,12 +30,10 @@ deleteAuthor = (id) => {
 
 // When doing an update, to modify the data updated we just have to modify the book object
 updateBook = (id, book) => {
-    book.added = new Date().toISOString();
     return connection('book').where('id', id).update(book);
 }
 
 updateAuthor = (id, author) => {
-    author.added = new Date().toISOString();
     return connection('author').where('id', id).update(author);
 }
 

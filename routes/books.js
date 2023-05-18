@@ -11,8 +11,9 @@ router.get('/', async (req, res) => {
 router
     .route('/:id')
     .get(async (req, res) => {
-        const author = await queries.getAllAuthors();
-        res.render('book', book);
+        const book = await queries.getBook(req.params.id);
+        book.author = await queries.getAuthor(book.author_id);
+        res.render('book', { book } );
     })
     .put((req, res) => {
         res.send('Actualizado al libro con ID: ' + req.params.id);
