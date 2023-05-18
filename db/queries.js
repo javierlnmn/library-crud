@@ -13,7 +13,7 @@ getBook = (id) => {
 };
 
 getAuthorsBooks = (id) => {
-    return connection('book').select('*').where('author_id', parseInt(id));
+    return connection('book').select('*').where('author_id', id);
 };
 
 getAuthor = (id) => {

@@ -21,7 +21,7 @@
 
                 <% if (author.books.length != 0) { %>
                     <p>
-                        Seeing <%= author.name %><% if (author.surname) { %> <%=author.surname%><% } %>'s books!
+                        Seeing <b><%= author.name %><% if (author.surname) { %> <%=author.surname%><% } %></b>'s books!
                     </p>
 
                     <table class="table">
@@ -59,7 +59,7 @@
 
                 <% } else { %>
                     <p>
-                        <%= author.name %> <% if (author.surname) { %><%= author.surname %><% } %> has no books in our library yeet!
+                       <b><%= author.name %> <% if (author.surname) { %><%= author.surname %><% } %></b> has no books in our library yeet!
                     </p>
                 <% }  %>
 
