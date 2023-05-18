@@ -5,14 +5,15 @@
     --color-2: #074F57;
     --color-3: #F7934C;
     --color-4: #FFC15E;
-    --blanco: #f0f0f0;
-    --negro: #151515;
+    --white: #f0f0f0;
+    --black: #151515;
+    --gray: #afafaf;
 }
 
 body { 
     margin: 0;
     font-family: 'Inter', sans-serif;
-    background-color: var(--blanco);
+    background-color: var(--white);
 }
 
 *, *::before, *::after {
@@ -31,7 +32,7 @@ main {
 /* Globals */
 
 .title {
-    color: var(--negro);
+    color: var(--black);
     font-weight: 900;
 }
 
@@ -41,7 +42,7 @@ main {
 }
 
 .light-link {
-    color: var(--blanco);
+    color: var(--white);
     transition: color .3s ease;
     cursor: pointer;
     font-weight: 700;
@@ -68,6 +69,33 @@ main {
     margin: 0 auto;
 }
 
+.button-link {
+    padding: 10px 15px;
+    background-color: var(--color-3);
+    color: var(--white);
+    font-weight: 800;
+    text-transform: capitalize;
+    border-radius: 5px;
+    transition: background-color .3s ease;
+}
+
+.button-link:hover {
+    background-color: var(--color-4);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-header span {
+    flex: 1;
+    background-color: var(--gray);
+    height: 1px;
+}
+
 /* Header */
 
 .header {
@@ -81,7 +109,7 @@ main {
 }
 
 .header .title {
-    color: var(--blanco);
+    color: var(--white);
     border: 2px dashed var(--color-4);
     transform: rotate(8deg);
     background-color: var(--color-2);
@@ -113,7 +141,7 @@ main {
 }
 
 .table .table-header-field {
-    color: var(--blanco);
+    color: var(--white);
     text-transform: capitalize;
 }
 

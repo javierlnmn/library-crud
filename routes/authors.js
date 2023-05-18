@@ -7,6 +7,10 @@ router.get('/', async (req, res) => {
     res.render('authors', { authors });
 });
 
+router.get('/new', async (req, res) => {
+    res.render('create-author');
+});
+
 router
     .route('/:id')
     .get(async (req, res) => {

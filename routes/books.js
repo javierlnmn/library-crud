@@ -8,6 +8,10 @@ router.get('/', async (req, res) => {
     res.render('books', { books, authors });
 });
 
+router.get('/new', async (req, res) => {
+    res.render('create-book');
+});
+
 router
     .route('/:id')
     .get(async (req, res) => {
