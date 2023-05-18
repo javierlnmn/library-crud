@@ -4,7 +4,7 @@ const queries = require('./../db/queries');
 
 router.get('/', async (req, res) => {
     const authors = await queries.getAllAuthors();
-    res.send(authors);
+    res.render('authors', { authors });
 });
 
 module.exports = router;

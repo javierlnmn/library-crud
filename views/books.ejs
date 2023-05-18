@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+
+    <link rel="stylesheet" href="/static/style/index.css">
+</head>
+
+<body>
+
+    <%- include('blocks/header.html') %>
+
+        <main>
+
+            <table class="table container">
+                <thead class="table-header">
+                    <tr>
+                        <% for (let key in books[0]) {%>
+                            <% if (key == 'author_id') { %>
+                                <th class="table-header-field">
+                                    Author
+                                </th>
+                            <% } else { %>
+                                <th class="table-header-field">
+                                    <%= key %>
+                                </th>
+                            <% } %>
+                        <% } %>
+                        <th class="table-header-field">
+                            link
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="table-body">
+                    <% for (let book of books) {%>
+                        <tr>
+                            <% for (let key in book) {%>
+                                <% if (key == 'author_id') { %>
+
+                                    <td class="table-header-field">
+                                        <a class="link" href="/authors/author/<%= book.author_id %>">
+
+                                            <% for (let key in authors) {%>
+                                                <% if (authors[key].id == book.author_id) {%>
+                                                    <%= authors[key].name %>
+                                                <% } %>
+                                            <% } %>
+                                            
+                                        </a>
+                                    </td>
+
+                                <% } else { %>
+
+                                    <td class="table-body-field">
+                                        <%= book[key] %>
+                                    </td>
+
+                                <% } %>
+                                
+                            <% } %>
+                            <td class="table-body-field">
+                                <a class="link" href="/books/book/<%= book.id %>">See book</a>
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+
+        </main>
+
+</body>
+
+</html>
+
