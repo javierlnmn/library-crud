@@ -36,17 +36,10 @@ router.
 router
     .route('/:id')
     .get(async (req, res) => {
-        console.log('get');
         const author = await queries.getAuthor(req.params.id);
         author.books = await queries.getAuthorsBooks(req.params.id);
         res.render('author', { author });
     });
-    // .delete(async (req, res) => {
-    //     res.send('Borrando al autor con ID: ' + req.params.id);
-    // });
-    // .put((req, res) => {
-    //     res.send('Actualizado al autor con ID: ' + req.params.id);
-    // });
 
 function validateAuthor(req, res, next) {
     let pattern = /^.+?$/;
