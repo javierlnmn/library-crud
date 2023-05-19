@@ -54,12 +54,8 @@ async function getAuthors(req, res, next) {
 }
 
 function validateBook(req, res, next) {
-    // Change this to regEx
-    if (
-        req.body.title === null||req.body.title === undefined || req.body.title === '' ||
-        req.body.authorId == null || req.body.authorId === undefined || req.body.authorId === '' ||
-        req.body.date === null ||req.body.date === undefined || req.body.date === ''
-    ) {
+    let pattern = /^.+?$/;
+    if ( !pattern.test(req.body.title) || !pattern.test(req.body.authorId) || !pattern.test(req.body.date) ) {
         req.error = true;
     }
     next();

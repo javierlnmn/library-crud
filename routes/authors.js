@@ -49,7 +49,8 @@ router
     // });
 
 function validateAuthor(req, res, next) {
-    if (req.body.name === null || req.body.name === undefined || req.body.name === '') {
+    let pattern = /^.+?$/;
+    if ( !pattern.test(req.body.name) ) {
         req.error = true;
     }
     next();
