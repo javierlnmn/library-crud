@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const queries = require('./../db/queries');
 
+// const methodOverride = require('method-override');
+// router.use(methodOverride('_method'));
+
 router.get('/', async (req, res) => {
     const authors = await queries.getAllAuthors();
     res.render('authors', { authors });
@@ -33,17 +36,17 @@ router.
 router
     .route('/:id')
     .get(async (req, res) => {
+        console.log('get');
         const author = await queries.getAuthor(req.params.id);
         author.books = await queries.getAuthorsBooks(req.params.id);
         res.render('author', { author });
-    })
-    .put((req, res) => {
-        res.send('Actualizado al autor con ID: ' + req.params.id);
-    })
-    .delete(async (req, res) => {
-        await queries.deleteAuthor(req.params.id);
-        res.send('authors');
     });
+    // .delete(async (req, res) => {
+    //     res.send('Borrando al autor con ID: ' + req.params.id);
+    // });
+    // .put((req, res) => {
+    //     res.send('Actualizado al autor con ID: ' + req.params.id);
+    // });
 
 function validateAuthor(req, res, next) {
     if (req.body.name === null || req.body.name === '') {
