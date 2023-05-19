@@ -10,8 +10,8 @@ router.get('/', async (req, res) => {
     res.render('authors', { authors });
 });
 
-router.
-    route('/new')
+router
+    .route('/new')
     .get((req, res) => {
         req.error = false;
         res.render('create-author', { error: req.error });
@@ -34,12 +34,24 @@ router.
     });
 
 router
+    .route('/:id/delete')
+    .get(async (req, res) => {
+        let authorId = req.params.id;
+        await queries.deleteAuthorsBooks(authorId);
+        await queries.deleteAuthor(authorId);
+        res.redirect('/authors');
+    });
+
+router
     .route('/:id')
     .get(async (req, res) => {
         const author = await queries.getAuthor(req.params.id);
+
         author.books = await queries.getAuthorsBooks(req.params.id);
         res.render('author', { author });
     });
+
+
 
 function validateAuthor(req, res, next) {
     let pattern = /^.+?$/;
