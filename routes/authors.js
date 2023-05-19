@@ -49,7 +49,7 @@ router
     // });
 
 function validateAuthor(req, res, next) {
-    if (req.body.name === null || req.body.name === '') {
+    if (req.body.name === null || req.body.name === undefined || req.body.name === '') {
         req.error = true;
     }
     next();

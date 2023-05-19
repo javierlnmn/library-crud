@@ -27,66 +27,72 @@
                         <a class="button-link" href="/books/new">Add book</a>
                     </div>
                 </div>
-            
-                <table class="table">
-                    <thead class="table-header">
-                        <tr>
-                            <% for (let key in books[0]) {%>
-    
-                                <% if (key == 'author_id') { %>
-    
-                                    <th class="table-header-field">
-                                        Author
-                                    </th>
-    
-                                <% } else { %>
-    
-                                    <th class="table-header-field">
-                                        <%= key %>
-                                    </th>
-    
-                                <% } %>
-    
-                            <% } %>
-                            <th class="table-header-field">
-                                link
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-body">
-                        <% for (let book of books) {%>
+
+                <% if (books.length === 0 ) { %>
+                    <p>There are no books registered yeet!</p>
+                <% } else { %>
+                    <table class="table">
+                        <thead class="table-header">
                             <tr>
-                                <% for (let key in book) {%>
+                                <% for (let key in books[0]) {%>
+        
                                     <% if (key == 'author_id') { %>
-    
-                                        <td class="table-header-field">
-                                            <a class="link" href="/authors/<%= book.author_id %>">
-    
-                                                <% for (let key in authors) {%>
-                                                    <% if (authors[key].id == book.author_id) {%>
-                                                        <%= authors[key].name %> <%= authors[key].surname %>
-                                                    <% } %>
-                                                <% } %>
-    
-                                            </a>
-                                        </td>
-    
+        
+                                        <th class="table-header-field">
+                                            Author
+                                        </th>
+        
                                     <% } else { %>
-    
-                                        <td class="table-body-field">
-                                            <%= book[key] %>
-                                        </td>
-    
+        
+                                        <th class="table-header-field">
+                                            <%= key %>
+                                        </th>
+        
                                     <% } %>
-                                    
+        
                                 <% } %>
-                                <td class="table-body-field">
-                                    <a class="link" href="/books/<%= book.id %>">See book</a>
-                                </td>
+                                <th class="table-header-field">
+                                    link
+                                </th>
                             </tr>
-                        <% } %>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody class="table-body">
+                            <% for (let book of books) {%>
+                                <tr>
+                                    <% for (let key in book) {%>
+                                        <% if (key == 'author_id') { %>
+        
+                                            <td class="table-header-field">
+                                                <a class="link" href="/authors/<%= book.author_id %>">
+        
+                                                    <% for (let key in authors) {%>
+                                                        <% if (authors[key].id == book.author_id) {%>
+                                                            <%= authors[key].name %> <%= authors[key].surname %>
+                                                        <% } %>
+                                                    <% } %>
+        
+                                                </a>
+                                            </td>
+        
+                                        <% } else { %>
+        
+                                            <td class="table-body-field">
+                                                <%= book[key] %>
+                                            </td>
+        
+                                        <% } %>
+                                        
+                                    <% } %>
+                                    <td class="table-body-field">
+                                        <a class="link" href="/books/<%= book.id %>">See book</a>
+                                    </td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                <% } %>
+            
+                
             
             </div>
 
