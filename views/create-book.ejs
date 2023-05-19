@@ -20,6 +20,40 @@
                
                 <h1 class="subtitle">Book creation form</h1>
 
+                <% if (error) { %><p class="red-text">There was an error inserting the data. Please try again.</p><% } %>
+
+                <form action="/books/new" method="post">
+                    <div class="form-container">
+
+                        <div class="fields-container">
+
+                            <div class="field-container">
+                                <label class="label" for="name">Title:</label>
+                                <input placeholder="Books' title" type="text" class="input" name="title" required>
+                            </div>
+
+                            <div class="field-container">
+                                <label class="label" for="name">Author:</label>
+                                <select class="input" name="authorId" id="cars" required>
+                                    <option value="" selected disabled>Please select an author</option>
+                                    <% for (author of authors) { %>
+                                        <option value="<%= author.id %>"><%= author.name %><% if (author.surname) { %> <%=author.surname%><% } %></option>
+                                    <% } %>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="field-container">
+                            <label class="label" for="name">Date:</label>
+                            <input placeholder="Books' writing date" type="date" class="input" name="date" required>
+                        </div>
+
+                        <button class="button-link" type="submit">Add book!</button>
+
+                    </div>
+                </form>
+
             </div>
 
         </main>

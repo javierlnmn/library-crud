@@ -199,7 +199,7 @@ button {
     }
 }
 
-.form-container .fields-container .field-container {
+.form-container .field-container {
     flex: 1;
     display: flex;
     gap: 10px;
@@ -207,7 +207,7 @@ button {
     height: fit-content;
 }
 
-.form-container .fields-container .label {
+.form-container .field-container .label {
     width: 20%;
     min-width: fit-content;
     padding: 10px;
@@ -217,7 +217,7 @@ button {
     text-align: center;
 }
 
-.form-container .fields-container .input {
+.form-container .field-container .input {
     flex: 1;
     padding: 10px;
     background-color: var(--white);
