@@ -37,6 +37,14 @@ updateAuthor = (id, author) => {
     return connection('author').where('id', id).update(author);
 }
 
+insertBook = (book) => {
+    return connection('book').insert(book);
+}
+
+insertAuthor = (author) => {
+    return connection('author').insert(author);
+}
+
 module.exports = {
     getAllBooks: getAllBooks,
     getAllAuthors: getAllAuthors,
@@ -46,5 +54,7 @@ module.exports = {
     deleteBook: deleteBook,
     deleteAuthor: deleteAuthor,
     updateBook: updateBook,
-    updateAuthor: updateAuthor
+    updateAuthor: updateAuthor,
+    insertBook: insertBook,
+    insertAuthor: insertAuthor
 }

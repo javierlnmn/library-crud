@@ -5,6 +5,7 @@
     --color-2: #074F57;
     --color-3: #F7934C;
     --color-4: #FFC15E;
+    --red: #eb2b2b;
     --white: #f0f0f0;
     --black: #151515;
     --gray: #afafaf;
@@ -29,6 +30,11 @@ main {
     padding-bottom: 40px;
 }
 
+button {
+    border: none;
+    cursor: pointer;
+}
+
 /* Globals */
 
 .title {
@@ -39,6 +45,11 @@ main {
 .subtitle {
     color: var(--color-3);
     font-weight: 900;
+}
+
+.red-text {
+    color: var(--red);
+    font-weight: 300;
 }
 
 .light-link {
@@ -165,4 +176,59 @@ main {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+/* Form */
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-container .fields-container {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    height: fit-content;
+}
+
+@media (max-width: 768px) {
+    .form-container .fields-container {
+        flex-direction: column;
+    }
+}
+
+.form-container .fields-container .field-container {
+    flex: 1;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    height: fit-content;
+}
+
+.form-container .fields-container .label {
+    width: 20%;
+    min-width: fit-content;
+    padding: 10px;
+    background-color: var(--color-3);
+    color: var(--white);
+    font-weight: 800;
+    text-align: center;
+}
+
+.form-container .fields-container .input {
+    flex: 1;
+    padding: 10px;
+    background-color: var(--white);
+    color: var(--black);
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+    outline: none;
+    font-size: 14px;
+}
+
+.form-container button {
+    min-width: 200px;
+    margin: auto 0 0 auto;
 }
