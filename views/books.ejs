@@ -24,6 +24,11 @@
                 <% if (books.length === 0 ) { %>
                     <p>There are no books registered yeet!</p>
                 <% } else { %>
+
+                    <div class="field-container">
+                        <input placeholder="Type here to search for a book..." class="filter-input input" type="text">
+                    </div>
+
                     <table class="table">
                         <thead class="table-header">
                             <tr>
@@ -92,6 +97,8 @@
         </main>
 
 </body>
+
+<%- include('blocks/scripts.html')%>
 
 </html>
 

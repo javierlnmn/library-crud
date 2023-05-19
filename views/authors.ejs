@@ -25,6 +25,10 @@
                     <p>There are no authors registered yeet!</p>
                 <% } else { %>
 
+                <div class="field-container">
+                    <input placeholder="Type here to search for an author..." class="filter-input input" type="text">
+                </div>
+
                 <table class="table">
                     <thead class="table-header">
                         <tr>
@@ -61,5 +65,7 @@
         </main>
 
 </body>
+
+<%- include('blocks/scripts.html')%>
 
 </html>
