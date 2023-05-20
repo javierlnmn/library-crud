@@ -46,7 +46,6 @@ router
     .route('/:id')
     .get(async (req, res) => {
         const author = await queries.getAuthor(req.params.id);
-
         author.books = await queries.getAuthorsBooks(req.params.id);
         res.render('author', { author });
     });

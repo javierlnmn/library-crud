@@ -23,7 +23,7 @@ router.
 
             let author_id = req.body.authorId;
             book.author_id = author_id;
-            
+
             let date = req.body.date;
             book.date = date;
 
@@ -33,6 +33,15 @@ router.
         }
         res.render('create-book', { error: req.error, authors: req.authors });
     });
+
+router
+    .route('/:id/delete')
+    .get(async (req, res) => {
+        let bookId = req.params.id;
+        await queries.deleteBook(bookId);
+        res.redirect('/books');
+    });
+
 
 router
     .route('/:id')
@@ -49,7 +58,7 @@ async function getAuthors(req, res, next) {
 
 function validateBook(req, res, next) {
     let pattern = /^.+?$/;
-    if ( !pattern.test(req.body.title) || !pattern.test(req.body.authorId) || !pattern.test(req.body.date) ) {
+    if (!pattern.test(req.body.title) || !pattern.test(req.body.authorId) || !pattern.test(req.body.date)) {
         req.error = true;
     }
     next();
